@@ -1,4 +1,5 @@
 --Question 3
+
 SELECT
 SUM(CASE WHEN trip_distance <= 1 THEN 1 ELSE 0 END) AS upto_1_mile,
 SUM(CASE WHEN trip_distance > 1 AND trip_distance <=3 THEN 1 ELSE 0 END) AS bwn_1_and_3_mile,
@@ -11,6 +12,7 @@ lpep_dropoff_datetime >= '2019-10-01'
     AND lpep_dropoff_datetime < '2019-11-01';
 
 --Question 4
+
 SELECT
 	MAX(trip_distance),
 	DATE(lpep_pickup_datetime)
@@ -20,6 +22,7 @@ GROUP BY DATE(lpep_pickup_datetime)
 ORDER BY MAX(trip_distance) DESC;
 
 --Question 5
+
 WITH top_areas AS(
 SELECT 
 SUM(total_amount) AS total_fare,
@@ -34,6 +37,7 @@ JOIN taxi_zone tz
 ON ta."PULocationID" = tz."LocationID"
 
 --Question 6
+
 SELECT
 tp.total_tip,
 tp."DOLocationID",
